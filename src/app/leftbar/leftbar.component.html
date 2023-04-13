@@ -1,0 +1,60 @@
+
+<nav id="sidebar" class="sidebar js-sidebar">
+    <div class="sidebar-content js-simplebar">
+      <a class="sidebar-brand" href="index.html">
+        <span class="align-middle">ATWD</span>
+      </a>
+
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title mb-0">Region</h5>
+            </div>
+            <div class="card-body">
+              <select class="form-select mb-3" id="Region_e"
+                onchange="clickRegion(); changeDistrict(); return false;">
+                <option value="" selected>Please Select Region</option>
+                <option value="Hong Kong & Islands">Hong Kong & Islands</option>
+                <option value="Kowloon">Kowloon</option>
+                <option value="New Territories">New Territories</option>
+              </select>
+            </div>
+            <div class="card-header" id="headerDistrict" style="display: none;">
+              <h5 class="card-title mb-0">District</h5>
+            </div>
+            <div class="card-body" id="bodyDistrict" style="display: none;">
+              <select class="form-select mb-3" id="District_e" onchange="clickDistrict(); return false;">
+                <option value="" selected>Please Select District</option>
+                <option href="javascript:setDistrict('CW');">One</option>
+                <option href="javascript:setDistrict('CW');">Two</option>
+                <option href="javascript:setDistrict('CW');">Three</option>
+              </select>
+            </div>
+            <div class="card-header" id="headerMarket" style="display: none;">
+              <h5 class="card-title mb-0">Market</h5>
+            </div>
+            <div class="card-body" id="bodyMarket" style="display: none;">
+              <select class="form-select mb-3" id="Market_e">
+                <option value="" selected>Please Select Market</option>
+                <option>One</option>
+                <option>Two</option>
+                <option>Three</option>
+              </select>
+            </div>
+            <div class="card-header">
+              <h5 class="card-title mb-0">Commodity</h5>
+            </div>
+            <div class="card-body">
+              <select class="form-select mb-3" id="Tenancy_Commodity_e" onchange="clickTC(); return false;">
+                <option selected>Please Select Commodity</option>
+                <option>One</option>
+                <option>Two</option>
+                <option>Three</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
