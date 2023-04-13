@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'atwd2-chris';
+  title = 'Market';
+  parent_marketList: any;
+  
+  getMsgFromLeftbar(event: any) {
+    this.parent_marketList = event;
+    console.log('getMsgFromSidebar');
+    console.log(this.parent_marketList);
+  }
 }

@@ -2,7 +2,7 @@
 
 
   <div class="wrapper">
-    <app-leftbar></app-leftbar>
+    <app-leftbar (callParent)="getMsgFromLeftbar($event)"></app-leftbar>
     <div class="main">
       <app-topbar></app-topbar>
       <app-main></app-main>
