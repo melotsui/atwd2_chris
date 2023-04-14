@@ -35,18 +35,20 @@ export class LeftbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.updateMarketList();
     this.leftBarForm.controls['search_tc'].setValue('');
     this.loadTC();
   }
 
   listMarket() {
+    console.log('listMarket');
     this.http.get<any>('http://localhost:8080/market/index.php/market/all')
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.allMarket = res;
           this.marketListToParent = this.allMarket;
+          this.clickTC();
         },
         error: (err) => {
           console.log(err);
@@ -55,16 +57,17 @@ export class LeftbarComponent implements OnInit {
   }
 
   msgToParent() {
+    console.log('msgToParent');
     // const marketList = Array.isArray(this.marketListToParent) ? this.marketListToParent : Object.values(this.marketListToParent);
     this.callParent.emit(this.marketListToParent);
   }
 
   loadTC() {
+    console.log('loadTC');
     this.http.get<any>('http://localhost:8080/market/index.php/market/field/tc')
       .subscribe({
         next: (res) => {
           this.tc = res;
-          console.log(res);
         },
         error: (err) => {
           console.log(`Server call failed: ${err}`);
@@ -84,6 +87,7 @@ export class LeftbarComponent implements OnInit {
   }
 
   changeDistrict() {
+    console.log('changeDistrict');
     if (this.leftBarForm.controls['search_region'].value != '') {
       this.http.get<any>('http://localhost:8080/market/index.php/market/field/district/' +
         this.leftBarForm.controls['search_region'].value)
@@ -102,7 +106,6 @@ export class LeftbarComponent implements OnInit {
     console.log('clickDistrict');
     this.leftBarForm.controls['search_tc'].setValue('');
     const District_e = this.leftBarForm.controls['search_district'].value;
-    console.log(District_e);
     if (District_e == '') {
       this.clickRegion();
       return;
@@ -111,13 +114,13 @@ export class LeftbarComponent implements OnInit {
       this.marketListToParent = this.allMarket.filter((r: any) => r.District_e === District_e);
     else
       this.marketListToParent = this.allMarket;
+    console.log(this.marketListToParent);
     this.msgToParent();
   }
 
   clickTC() {
     console.log('clickTC');
     const tcSearch = this.leftBarForm.controls['search_tc'].value;
-    console.log(tcSearch);
     this.clickDistrict();
     this.leftBarForm.controls['search_tc'].setValue(tcSearch);
     if (this.leftBarForm.controls['search_tc'].value != '')
@@ -128,7 +131,7 @@ export class LeftbarComponent implements OnInit {
   }
 
   updateMarketList() {
+    console.log('updateMarketList');
     this.listMarket();
-    this.clickTC();
   }
 }

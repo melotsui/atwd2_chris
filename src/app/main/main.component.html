@@ -1,51 +1,51 @@
-
 <main class="content">
-    <div class="container-fluid p-0">
-      <h1 class="h3 mb-3">
-        <strong>Market List </strong>
-        <a href="" data-bs-toggle="modal" data-bs-target="#editModal" onclick="clickModalAddIcon();return false;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-plus-square align-middle me-2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="12" y1="8" x2="12" y2="16"></line>
-            <line x1="8" y1="12" x2="16" y2="12"></line>
-          </svg>
-        </a>
-      </h1>
-    </div>
-    <div class="row">
-      <div class="col-12 col-lg-12 col-xxl-12 d-flex">
-        <div class="card flex-fill">
-          <div class="card-header">
+  <div class="container-fluid p-0">
+    <h1 class="h3 mb-3">
+      <strong>Market List </strong>
+      <a href="" (click)="setModal($event, 'edit')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="feather feather-plus-square align-middle me-2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+      </a>
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+      <div class="card flex-fill">
+        <div class="card-header">
 
-            <!-- <h5 class="card-title mb-0">Click to view details</h5> -->
-          </div>
-          <table class="table table-hover my-0" id="dataTable">
-            <thead>
-              <tr>
-                <th class="d-none d-md-table-cell">ID</th>
-                <th class="d-none d-md-table-cell">Region</th>
-                <th class="d-none d-md-table-cell">District</th>
-                <th class="d-none d-md-table-cell">Market</th>
-                <th class="d-none d-md-table-cell">Address</th>
-                <th class="d-none d-md-table-cell">Business Hours</th>
-                <th class="d-none d-md-table-cell">Contact</th>
-                <th class="d-none d-md-table-cell">Commodity</th>
-                <th class="d-none d-md-table-cell">Action</th>
-              </tr>
-            </thead>
-            <tbody id="dataBody">
-              <tr>
-                <td>Project Apollo</td>
-                <td class="d-none d-xl-table-cell">01/01/2021</td>
-                <td>31/06/2021</td>
-                <td>31/06/2021</td>
-                <td>31/06/2021</td>
-                <td>31/06/2021</td>
-                <td><span class="badge bg-success">Done</span></td>
-                <td>Vanessa Tucker</td>
-                <td>
+          <!-- <h5 class="card-title mb-0">Click to view details</h5> -->
+        </div>
+        <table class="table table-hover my-0" id="dataTable">
+          <thead>
+            <tr>
+              <th class="d-none d-md-table-cell">ID</th>
+              <th class="d-none d-md-table-cell">Region</th>
+              <th class="d-none d-md-table-cell">District</th>
+              <th class="d-none d-md-table-cell">Market</th>
+              <th class="d-none d-md-table-cell">Address</th>
+              <th class="d-none d-md-table-cell">Business Hours</th>
+              <th class="d-none d-md-table-cell">Contact</th>
+              <th class="d-none d-md-table-cell">Commodity</th>
+              <th class="d-none d-md-table-cell">Action</th>
+            </tr>
+          </thead>
+          <tbody id="dataBody">
+            <tr *ngFor="let item of parent_marketList">
+              <td class="d-none d-md-table-cell">{{item['mID']}}</td>
+              <td class="d-none d-md-table-cell">{{item['Region_e']}}</td>
+              <td class="d-none d-md-table-cell">{{item['District_e']}}</td>
+              <td class="d-none d-md-table-cell">{{item['Market_e']}}</td>
+              <td class="d-none d-md-table-cell">{{item['Address_e']}}</td>
+              <td class="d-none d-md-table-cell">{{item['Business_Hours_e']}}</td>
+              <td class="d-none d-md-table-cell">{{item['Contact_1']}} {{item['Contact_2']}}</td>
+              <td class="d-none d-md-table-cell">{{item['Tenancy_Commodity_e']}}</td>
+              <td class="d-none d-md-table-cell">
+                <a href="" (click)="setModal($event, 'edit', item['mID'])">
                   <div class="mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -56,12 +56,13 @@
                       </path>
                     </svg>
                   </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
 
-  </main>
+</main>
