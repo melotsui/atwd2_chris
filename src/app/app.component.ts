@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
-import { CreateModalComponent } from './create-modal/create-modal.component';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
-import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,9 +11,7 @@ export class AppComponent {
   parent_marketList: any;
   mainToModal: any;
   dialogConfig = new MatDialogConfig();
-  createModalDialog: MatDialogRef<CreateModalComponent, any> | undefined;
   updateModalComponent: MatDialogRef<UpdateModalComponent, any> | undefined;
-  deleteModalComponent: MatDialogRef<DeleteModalComponent, any> | undefined;
   matDialog: MatDialog;
   
   constructor(matDialog: MatDialog) {

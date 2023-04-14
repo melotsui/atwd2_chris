@@ -25,36 +25,100 @@
                             </div>
                             <div class="col-12">
                                 <label for="modalName_e" class="form-label">Market Name</label>
-                                <input type="text" class="form-control" id="modalName_e" formControlName="modalName_e">
+                                <input type="text" class="form-control" id="modalName_e"
+                                    formControlName="modalName_e" />
+                                <div *ngIf="updateMarketForm.get('modalName_e')?.invalid && (updateMarketForm.get('modalName_e')?.dirty || updateMarketForm.get('modalName_e')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalName_e')?.hasError('required')">
+                                        Please enter the market name.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalName_e')?.hasError('customValidator')">
+                                        Please enter a valid market name.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalRegion_e" class="form-label">Region</label>
                                 <input type="text" class="form-control" id="modalRegion_e"
                                     formControlName="modalRegion_e">
+                                <div *ngIf="updateMarketForm.get('modalRegion_e')?.invalid && (updateMarketForm.get('modalRegion_e')?.dirty || updateMarketForm.get('modalRegion_e')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalRegion_e')?.hasError('required')">
+                                        Please enter the region.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalRegion_e')?.hasError('customValidator')">
+                                        Please enter a valid region.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalDistrict_e" class="form-label">District</label>
                                 <input type="text" class="form-control" id="modalDistrict_e"
                                     formControlName="modalDistrict_e">
+                                <div *ngIf="updateMarketForm.get('modalDistrict_e')?.invalid && (updateMarketForm.get('modalDistrict_e')?.dirty || updateMarketForm.get('modalDistrict_e')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalDistrict_e')?.hasError('required')">
+                                        Please enter the district.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalDistrict_e')?.hasError('customValidator')">
+                                        Please enter a valid district.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalAddress_e" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="modalAddress_e"
                                     formControlName="modalAddress_e">
+                                <div *ngIf="updateMarketForm.get('modalAddress_e')?.invalid && (updateMarketForm.get('modalAddress_e')?.dirty || updateMarketForm.get('modalAddress_e')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalAddress_e')?.hasError('required')">
+                                        Please enter the address.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalAddress_e')?.hasError('customValidator')">
+                                        Please enter a valid address.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalBH_e" class="form-label">Business Hours</label>
                                 <input type="text" class="form-control" id="modalBH_e" formControlName="modalBH_e">
+                                <div *ngIf="updateMarketForm.get('modalBH_e')?.invalid && (updateMarketForm.get('modalBH_e')?.dirty || updateMarketForm.get('modalBH_e')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalBH_e')?.hasError('required')">
+                                        Please enter the business hours.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalBH_e')?.hasError('customValidator')">
+                                        Please enter a valid business hours.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalContact_1" class="form-label">Contact 聯絡電話 1</label>
                                 <input type="text" class="form-control" id="modalContact_1"
                                     formControlName="modalContact_1">
+                                <div *ngIf="updateMarketForm.get('modalContact_1')?.invalid && (updateMarketForm.get('modalContact_1')?.dirty || updateMarketForm.get('modalContact_1')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalContact_1')?.hasError('required')">
+                                        Please enter the contact 聯絡電話 1.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalContact_1')?.hasError('customValidator')">
+                                        Please enter a valid contact 聯絡電話 1.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12" id="modalDivCoordinate" *ngIf="this.data.action != 'delete'">
                                 <label for="modalContact_2" class="form-label">Coordinate</label>
                                 <input type="text" class="form-control" id="modalCoordinate"
                                     formControlName="modalCoordinate">
+                                <div *ngIf="updateMarketForm.get('modalCoordinate')?.invalid && (updateMarketForm.get('modalCoordinate')?.dirty || updateMarketForm.get('modalCoordinate')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalCoordinate')?.hasError('required')">
+                                        Please enter the coordinate.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalCoordinate')?.hasError('customValidator')">
+                                        Please enter a valid coordinate.
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -69,30 +133,84 @@
                             <div class="col-12">
                                 <label for="modalName_c" class="form-label">街市</label>
                                 <input type="text" class="form-control" id="modalName_c" formControlName="modalName_c">
+                                <div *ngIf="updateMarketForm.get('modalName_c')?.invalid && (updateMarketForm.get('modalName_c')?.dirty || updateMarketForm.get('modalName_c')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalName_c')?.hasError('required')">
+                                        Please enter the 街市.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalName_c')?.hasError('customValidator')">
+                                        Please enter a valid 街市.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalRegion_c" class="form-label">區域</label>
                                 <input type="text" class="form-control" id="modalRegion_c"
                                     formControlName="modalRegion_c">
+                                <div *ngIf="updateMarketForm.get('modalRegion_c')?.invalid && (updateMarketForm.get('modalRegion_c')?.dirty || updateMarketForm.get('modalRegion_c')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalRegion_c')?.hasError('required')">
+                                        Please enter the 區域.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalRegion_c')?.hasError('customValidator')">
+                                        Please enter a valid 區域.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
-                                <label for="modalRegion_e" class="form-label">地區</label>
+                                <label for="modalDistrict_c" class="form-label">地區</label>
                                 <input type="text" class="form-control" id="modalDistrict_c"
                                     formControlName="modalDistrict_c">
+                                <div *ngIf="updateMarketForm.get('modalDistrict_c')?.invalid && (updateMarketForm.get('modalDistrict_c')?.dirty || updateMarketForm.get('modalDistrict_c')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalDistrict_c')?.hasError('required')">
+                                        Please enter the 地區.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalDistrict_c')?.hasError('customValidator')">
+                                        Please enter a valid 地區.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalAddress_c" class="form-label">地址</label>
                                 <input type="text" class="form-control" id="modalAddress_c"
                                     formControlName="modalAddress_c">
+                                <div *ngIf="updateMarketForm.get('modalAddress_c')?.invalid && (updateMarketForm.get('modalAddress_c')?.dirty || updateMarketForm.get('modalAddress_c')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalAddress_c')?.hasError('required')">
+                                        Please enter the 地址.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalAddress_c')?.hasError('customValidator')">
+                                        Please enter a valid 地址.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalBH_c" class="form-label">營業時間</label>
                                 <input type="text" class="form-control" id="modalBH_c" formControlName="modalBH_c">
+                                <div *ngIf="updateMarketForm.get('modalBH_c')?.invalid && (updateMarketForm.get('modalBH_c')?.dirty || updateMarketForm.get('modalBH_c')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalBH_c')?.hasError('required')">
+                                        Please enter the 營業時間.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalBH_c')?.hasError('customValidator')">
+                                        Please enter a valid 營業時間.
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label for="modalContact_2" class="form-label">Contact 聯絡電話 2</label>
                                 <input type="text" class="form-control" id="modalContact_2"
                                     formControlName="modalContact_2">
+                                <div *ngIf="updateMarketForm.get('modalContact_2')?.invalid && (updateMarketForm.get('modalContact_2')?.dirty || updateMarketForm.get('modalContact_2')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="updateMarketForm.get('modalContact_2')?.hasError('required')">
+                                        Please enter the contact 聯絡電話 2.
+                                    </div>
+                                    <div *ngIf="updateMarketForm.get('modalContact_2')?.hasError('customValidator')">
+                                        Please enter a valid contact 聯絡電話 2.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -107,23 +225,52 @@
 
                         <table class="table table-hover my-0">
                             <thead>
-                                <th scope="col">Tenancy Commodity</th>
-                                <th scope="col">商品</th>
-                                <th scope="col">Nos Stall</th>
+                                <th scope="col"><label for="modalTC_e">Tenancy Commodity</label> </th>
+                                <th scope="col"><label for="modalTC_c">商品</label></th>
+                                <th scope="col" for="modalNosStall"><label for="modalNosStall">Nos Stall</label></th>
                             </thead>
                             <tbody id="modalTbBody">
                                 <tr>
                                     <td>
                                         <input type="text" class="form-control modalTC" id="modalTC_e"
                                             formControlName="modalTC_e" />
+                                        <div *ngIf="updateMarketForm.get('modalTC_e')?.invalid && (updateMarketForm.get('modalTC_e')?.dirty || updateMarketForm.get('modalTC_e')?.touched)"
+                                            class="text-danger">
+                                            <div *ngIf="updateMarketForm.get('modalTC_e')?.hasError('required')">
+                                                Please enter the Tenancy Commodity.
+                                            </div>
+                                            <div *ngIf="updateMarketForm.get('modalTC_e')?.hasError('customValidator')">
+                                                Please enter a valid Tenancy Commodity.
+                                            </div>
+                                        </div>
+
                                     </td>
                                     <td>
                                         <input type="text" class="form-control modalTC" id="modalTC_c"
                                             formControlName="modalTC_c" />
+                                        <div *ngIf="updateMarketForm.get('modalTC_c')?.invalid && (updateMarketForm.get('modalTC_c')?.dirty || updateMarketForm.get('modalTC_c')?.touched)"
+                                            class="text-danger">
+                                            <div *ngIf="updateMarketForm.get('modalTC_c')?.hasError('required')">
+                                                Please enter the 商品.
+                                            </div>
+                                            <div *ngIf="updateMarketForm.get('modalTC_c')?.hasError('customValidator')">
+                                                Please enter a valid 商品.
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
                                         <input type="number" class="form-control modalTC" id="modalNosStall"
                                             formControlName="modalNosStall" />
+                                        <div *ngIf="updateMarketForm.get('modalNosStall')?.invalid && (updateMarketForm.get('modalNosStall')?.dirty || updateMarketForm.get('modalNosStall')?.touched)"
+                                            class="text-danger">
+                                            <div *ngIf="updateMarketForm.get('modalNosStall')?.hasError('required')">
+                                                Please enter the Nos Stall.
+                                            </div>
+                                            <div
+                                                *ngIf="updateMarketForm.get('modalNosStall')?.hasError('customValidator')">
+                                                Please enter a valid Nos Stall.
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

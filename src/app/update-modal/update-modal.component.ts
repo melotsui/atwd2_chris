@@ -27,22 +27,22 @@ export class UpdateModalComponent implements OnInit {
     this.modalTitle = '';
     this.updateMarketForm = fb.group({
       modalmID: [''],
-      modalName_e: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalName_c: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalRegion_e: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalRegion_c: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalDistrict_e: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalDistrict_c: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalAddress_e: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalAddress_c: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalBH_e: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalBH_c: ['6UO MARKET', [Validators.required, this.customValidator]],
-      modalContact_1: ['1234', [Validators.required, this.customValidator]],
-      modalContact_2: ['4321', [Validators.required, this.customValidator]],
-      modalCoordinate: ['22.28251,114.22275', [Validators.required, this.customValidator]],
-      modalTC_e: ['6UO', [Validators.required, this.customValidator]],
-      modalTC_c: ['6UO', [Validators.required, this.customValidator]],
-      modalNosStall: ['67', [Validators.required]],
+      modalName_e: ['', [Validators.required, this.customValidator]],
+      modalName_c: ['', [Validators.required, this.customValidator]],
+      modalRegion_e: ['', [Validators.required, this.customValidator]],
+      modalRegion_c: ['', [Validators.required, this.customValidator]],
+      modalDistrict_e: ['', [Validators.required, this.customValidator]],
+      modalDistrict_c: ['', [Validators.required, this.customValidator]],
+      modalAddress_e: ['', [Validators.required, this.customValidator]],
+      modalAddress_c: ['', [Validators.required, this.customValidator]],
+      modalBH_e: ['', [Validators.required, this.customValidator]],
+      modalBH_c: ['', [Validators.required, this.customValidator]],
+      modalContact_1: ['', [Validators.required, this.customValidator]],
+      modalContact_2: ['', [Validators.required, this.customValidator]],
+      modalCoordinate: ['', [Validators.required, this.customValidator]],
+      modalTC_e: ['', [Validators.required, this.customValidator]],
+      modalTC_c: ['', [Validators.required, this.customValidator]],
+      modalNosStall: ['', [Validators.required]],
     });
     this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://maps.google.com/maps?q=' + this.updateMarketForm.value.modalCoordinate + '&t=&z=13&ie=UTF8&iwloc=&output=embed');
 
@@ -97,7 +97,24 @@ export class UpdateModalComponent implements OnInit {
   onSubmit(formValue: any): void {
     let url = '';
     let data = null;
-    let isUpdated = false;
+    if (this.updateMarketForm.invalid) {
+      // Loop through each form control in the form
+      let errorMsg = '';
+      Object.keys(this.updateMarketForm.controls).forEach(key => {
+        const controlErrors = this.updateMarketForm.get(key)?.errors;
+        // If the current form control has an error
+        if (controlErrors != null) {
+          Object.keys(controlErrors).forEach(keyError => {
+            // Get the error message for the current error key
+            const modalNameLabel = document.querySelector('label[for="'+key+'"]');
+            const modalNameLabelText = modalNameLabel ? modalNameLabel.innerHTML : 'Contact 聯絡電話 2';
+            errorMsg += 'Please enter the ' + modalNameLabelText + "\n";
+          });
+        }
+      });
+      alert(errorMsg);
+      return;
+    }
     if (this.data.action == 'create') {
       url = 'http://localhost:8080/market/index.php/market';
       data = {
@@ -122,7 +139,7 @@ export class UpdateModalComponent implements OnInit {
       console.log(data);
       this.http.post<any>(url, data).subscribe({
         next: (res) => {
-          if(res['status'] == 'success'){
+          if (res['status'] == 'success') {
             alert(res['message']);
             this.sharedService.updateMarketList.emit();
             this.closeModal();
@@ -162,7 +179,7 @@ export class UpdateModalComponent implements OnInit {
       console.log(data);
       this.http.put<any>(url, data).subscribe({
         next: (res) => {
-          if(res['status'] == 'success'){
+          if (res['status'] == 'success') {
             alert(res['message']);
             this.sharedService.updateMarketList.emit();
             this.closeModal();
@@ -182,7 +199,7 @@ export class UpdateModalComponent implements OnInit {
       url = 'http://localhost:8080/market/index.php/market/' + formValue.modalmID;
       this.http.delete<any>(url).subscribe({
         next: (res) => {
-          if(res['status'] == 'success'){
+          if (res['status'] == 'success') {
             alert(res['message']);
             this.sharedService.updateMarketList.emit();
             this.closeModal();

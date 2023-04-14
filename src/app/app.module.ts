@@ -10,9 +10,7 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { LeftbarComponent } from './leftbar/leftbar.component';
 import { MainComponent } from './main/main.component';
-import { CreateModalComponent } from './create-modal/create-modal.component';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
-import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +18,7 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
     TopbarComponent,
     LeftbarComponent,
     MainComponent,
-    CreateModalComponent,
     UpdateModalComponent,
-    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
