@@ -35,7 +35,7 @@ export class LeftbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listMarket();
+    this.updateMarketList();
     this.leftBarForm.controls['search_tc'].setValue('');
     this.loadTC();
   }
@@ -47,7 +47,6 @@ export class LeftbarComponent implements OnInit {
           console.log(res);
           this.allMarket = res;
           this.marketListToParent = this.allMarket;
-          this.msgToParent();
         },
         error: (err) => {
           console.log(err);
@@ -56,8 +55,8 @@ export class LeftbarComponent implements OnInit {
   }
 
   msgToParent() {
-    const marketList = Array.isArray(this.marketListToParent) ? this.marketListToParent : Object.values(this.marketListToParent);
-    this.callParent.emit(marketList);
+    // const marketList = Array.isArray(this.marketListToParent) ? this.marketListToParent : Object.values(this.marketListToParent);
+    this.callParent.emit(this.marketListToParent);
   }
 
   loadTC() {
@@ -100,6 +99,7 @@ export class LeftbarComponent implements OnInit {
   }
 
   clickDistrict() {
+    console.log('clickDistrict');
     this.leftBarForm.controls['search_tc'].setValue('');
     const District_e = this.leftBarForm.controls['search_district'].value;
     console.log(District_e);
@@ -111,19 +111,24 @@ export class LeftbarComponent implements OnInit {
       this.marketListToParent = this.allMarket.filter((r: any) => r.District_e === District_e);
     else
       this.marketListToParent = this.allMarket;
-    console.log('clickDistrict');
     this.msgToParent();
   }
 
   clickTC() {
+    console.log('clickTC');
     const tcSearch = this.leftBarForm.controls['search_tc'].value;
     console.log(tcSearch);
+    this.clickDistrict();
+    this.leftBarForm.controls['search_tc'].setValue(tcSearch);
     if (this.leftBarForm.controls['search_tc'].value != '')
-      this.marketListToParent = this.allMarket.filter((r: any) => r.Tenancy_Commodity_e === tcSearch);
+      this.marketListToParent = this.marketListToParent.filter((r: any) => r.Tenancy_Commodity_e === tcSearch);
     else
-      this.marketListToParent = this.allMarket;
-
-    console.log('clickTC');
+      this.marketListToParent = this.marketListToParent;
     this.msgToParent();
+  }
+
+  updateMarketList() {
+    this.listMarket();
+    this.clickTC();
   }
 }
