@@ -9,7 +9,7 @@
         <div class="col-12 col-lg-12">
           <div class="card">
             <div class="card-header">
-              <h5 class="card-title mb-0">Region</h5>
+              <h4 class="card-title mb-0">Region</h4>
             </div>
             <div class="card-body">
               <select class="form-select mb-3" id="Region_e" formControlName="search_region" (change)="clickRegion(); changeDistrict();">
@@ -21,7 +21,7 @@
             </div>
             <div *ngIf="leftBarForm.value['search_region'] != ''">
               <div class="card-header" id="headerDistrict" >
-                <h5 class="card-title mb-0">District</h5>
+                <h4 class="card-title mb-0">District</h4>
               </div>
               <div class="card-body" id="bodyDistrict" >
                 <select class="form-select mb-3" id="District_e" formControlName="search_district" (change)="clickDistrict();">
@@ -31,7 +31,7 @@
               </div>
             </div>
             <div class="card-header">
-              <h5 class="card-title mb-0">Commodity</h5>
+              <h4 class="card-title mb-0">Commodity</h4>
             </div>
             <div class="card-body">
               <select class="form-select mb-3" id="Tenancy_Commodity_e" formControlName="search_tc" (change)="clickTC();">

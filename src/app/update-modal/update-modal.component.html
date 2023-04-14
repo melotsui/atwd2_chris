@@ -1,0 +1,148 @@
+<div class="modal-dialog">
+    <div class="modal-content ">
+        <div class="modal-header">
+            <h2 class="modal-title"> {{modalTitle}}
+                <a id="modalEditIcon" href="" (click)="clickModalEditIcon($event);">
+                    <svg *ngIf="data.action == 'delete'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-edit align-middle me-2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                </a>
+            </h2>
+            <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+
+        <form [formGroup]="updateMarketForm">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-12" style="display: none;">
+                                <label for="modalmID" class="form-label">Market ID</label>
+                                <input type="text" class="form-control" id="modalmID" formControlName="modalmID">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalName_e" class="form-label">Market Name</label>
+                                <input type="text" class="form-control" id="modalName_e" formControlName="modalName_e">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalRegion_e" class="form-label">Region</label>
+                                <input type="text" class="form-control" id="modalRegion_e"
+                                    formControlName="modalRegion_e">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalDistrict_e" class="form-label">District</label>
+                                <input type="text" class="form-control" id="modalDistrict_e"
+                                    formControlName="modalDistrict_e">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalAddress_e" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="modalAddress_e"
+                                    formControlName="modalAddress_e">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalBH_e" class="form-label">Business Hours</label>
+                                <input type="text" class="form-control" id="modalBH_e" formControlName="modalBH_e">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalContact_1" class="form-label">Contact 聯絡電話 1</label>
+                                <input type="text" class="form-control" id="modalContact_1"
+                                    formControlName="modalContact_1">
+                            </div>
+                            <div class="col-12" id="modalDivCoordinate" *ngIf="this.data.action != 'delete'">
+                                <label for="modalContact_2" class="form-label">Coordinate</label>
+                                <input type="text" class="form-control" id="modalCoordinate"
+                                    formControlName="modalCoordinate">
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-4">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="modalName_c" class="form-label">街市</label>
+                                <input type="text" class="form-control" id="modalName_c" formControlName="modalName_c">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalRegion_c" class="form-label">區域</label>
+                                <input type="text" class="form-control" id="modalRegion_c"
+                                    formControlName="modalRegion_c">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalRegion_e" class="form-label">地區</label>
+                                <input type="text" class="form-control" id="modalDistrict_c"
+                                    formControlName="modalDistrict_c">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalAddress_c" class="form-label">地址</label>
+                                <input type="text" class="form-control" id="modalAddress_c"
+                                    formControlName="modalAddress_c">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalBH_c" class="form-label">營業時間</label>
+                                <input type="text" class="form-control" id="modalBH_c" formControlName="modalBH_c">
+                            </div>
+                            <div class="col-12">
+                                <label for="modalContact_2" class="form-label">Contact 聯絡電話 2</label>
+                                <input type="text" class="form-control" id="modalContact_2"
+                                    formControlName="modalContact_2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12"
+                        *ngIf="data.action == 'delete' && updateMarketForm.value['modalCoordinate'] != ''">
+                        <div id="map-container-google-2" class="z-depth-1-half map-container" style="height:100%;">
+                            <iframe [src]="iframeUrl" frameborder="0" style="border:0;height:auto;width:100%;"
+                                id="google-map-iframe" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-12" id="modal_tc">
+
+                        <table class="table table-hover my-0">
+                            <thead>
+                                <th scope="col">Tenancy Commodity</th>
+                                <th scope="col">商品</th>
+                                <th scope="col">Nos Stall</th>
+                            </thead>
+                            <tbody id="modalTbBody">
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control modalTC" id="modalTC_e"
+                                            formControlName="modalTC_e" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control modalTC" id="modalTC_c"
+                                            formControlName="modalTC_c" />
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control modalTC" id="modalNosStall"
+                                            formControlName="modalNosStall" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary"
+                        *ngIf="data.action == 'update' || data.action == 'create'"
+                        (click)="onSubmit(updateMarketForm.value)">Add</button>
+                    <button type="button" class="btn btn-primary" *ngIf="data.action == 'update'"
+                        (click)="onSubmit(updateMarketForm.value)">Update</button>
+                    <button type="button" class="btn btn-primary" *ngIf="data.action == 'delete'"
+                        (click)="onSubmit(updateMarketForm.value)">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

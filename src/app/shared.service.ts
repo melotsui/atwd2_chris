@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
 
-  constructor() { }
+export class SharedService {
+  public updateMarketList = new EventEmitter<void>();
 }

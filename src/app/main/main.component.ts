@@ -16,7 +16,7 @@ export class MainComponent {
     this.http = http;
     this.actionToModal = ({
       action: '',
-      mID: null
+      market: null
     });
   }
 
@@ -24,9 +24,9 @@ export class MainComponent {
     this.callParent.emit(this.actionToModal);
   }
 
-  setModal(event: any, action: String, mID: number | null = null){
+  setModal(event: any, action: String, market: any | null = null){
     this.actionToModal.action = action;
-    this.actionToModal.mID = mID;
+    this.actionToModal.market = market;
     console.log(action);
     console.log(this.actionToModal);
     this.msgToModal();

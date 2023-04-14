@@ -2,7 +2,7 @@
   <div class="container-fluid p-0">
     <h1 class="h3 mb-3">
       <strong>Market List </strong>
-      <a href="" (click)="setModal($event, 'edit')">
+      <a href="" (click)="setModal($event, 'create')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
           class="feather feather-plus-square align-middle me-2">
@@ -18,7 +18,7 @@
       <div class="card flex-fill">
         <div class="card-header">
 
-          <!-- <h5 class="card-title mb-0">Click to view details</h5> -->
+          <!-- <h4 class="card-title mb-0">Click to view details</h4> -->
         </div>
         <table class="table table-hover my-0" id="dataTable">
           <thead>
@@ -45,7 +45,7 @@
               <td class="d-none d-md-table-cell">{{item['Contact_1']}} {{item['Contact_2']}}</td>
               <td class="d-none d-md-table-cell">{{item['Tenancy_Commodity_e']}}</td>
               <td class="d-none d-md-table-cell">
-                <a href="" (click)="setModal($event, 'edit', item['mID'])">
+                <a href="" (click)="setModal($event, 'delete', item)">
                   <div class="mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -64,5 +64,4 @@
       </div>
     </div>
   </div>
-
 </main>

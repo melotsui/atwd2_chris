@@ -28,9 +28,11 @@ export class LeftbarComponent implements OnInit {
     this.tc = [];
     this.allMarket = [];
     this.marketListToParent = [];
-    // this.sharedService.updateMarketList.subscribe(() => {
-    //   this.onChangeSearch();
-    // });
+    this.sharedService.updateMarketList.subscribe(() => {
+      this.updateMarketList();
+      this.clickTC();
+      this.msgToParent();
+    });
 
   }
 
